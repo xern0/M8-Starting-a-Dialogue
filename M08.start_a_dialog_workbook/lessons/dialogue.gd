@@ -64,10 +64,10 @@ func create_buttons(buttons_data: Array[DialogueChoice]) -> void:
 		button.queue_free()
 	for choice in buttons_data:
 		var button := Button.new()
-		button.size_flags_horizontal = Control.SIZE_SHRINK_END
+		button.size_flags_vertical = Control.SIZE_SHRINK_END
 		action_buttons_v_box_container.add_child(button)
 		button.text = choice.text
-		if choice.is_quit:
+		if choice.is_quit == true:
 			button.pressed.connect(get_tree().quit)
 		else:
 			var target_line_id := choice.target_line_idx
